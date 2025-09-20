@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>生活主控版</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#6366f1">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>生活主控版</h1>
+            <span class="date" id="currentDate"></span>
+        </header>
+
+        <!-- 健康追蹤卡片 -->
+        <div class="card wellness-card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">❤️</span>
+                    <h2>健康追蹤</h2>
+                </div>
+            </div>
+            <div class="card-content">
+                <!-- 喝水追蹤 -->
+                <div class="wellness-item">
+                    <div class="item-header">
+                        <span class="icon">💧</span>
+                        <span>今日喝水</span>
+                        <span class="count" id="waterCount">0/8 杯</span>
+                    </div>
+                    <div class="water-controls">
+                        <button id="waterMinus" class="control-btn minus">-</button>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="waterProgress"></div>
+                        </div>
+                        <button id="waterPlus" class="control-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 運動追蹤 -->
+                <div class="wellness-item">
+                    <div class="item-header">
+                        <span class="icon">🏃</span>
+                        <span>今日運動</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="exerciseToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 睡眠追蹤 -->
+                <div class="wellness-item">
+                    <div class="item-header">
+                        <span class="icon">🌙</span>
+                        <span>睡眠時間</span>
+                        <span class="count" id="sleepHours">8.0 小時</span>
+                    </div>
+                    <div class="sleep-controls">
+                        <div class="sleep-input">
+                            <label>就寢</label>
+                            <input type="time" id="sleepStart" value="23:00">
+                        </div>
+                        <div class="sleep-input">
+                            <label>起床</label>
+                            <input type="time" id="sleepEnd" value="07:00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 每日一句卡片 -->
+        <div class="card quote-card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">💬</span>
+                    <h2>每日一句</h2>
+                </div>
+                <button id="refreshQuote" class="refresh-btn">換一句</button>
+            </div>
+            <div class="card-content">
+                <div class="quote-content">
+                    <p class="quote-text" id="quoteText">每一天都是新的開始</p>
+                    <p class="quote-author" id="quoteAuthor">— 佚名</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 待辦事項卡片 -->
+        <div class="card todo-card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">✅</span>
+                    <h2>今日待辦</h2>
+                </div>
+                <span class="todo-count" id="todoCount">0 項待完成</span>
+            </div>
+            <div class="card-content">
+                <div class="todo-input-container">
+                    <input type="text" id="todoInput" placeholder="新增待辦事項..." maxlength="100">
+                    <button id="addTodo" class="add-btn">+</button>
+                </div>
+                <div class="todo-list" id="todoList">
+                    <div class="empty-state">
+                        <span class="empty-icon">✓</span>
+                        <p>暫無待辦事項</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
